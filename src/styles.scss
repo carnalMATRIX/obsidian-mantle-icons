@@ -1,0 +1,204 @@
+/* --- Hide the 'icon' property from the Obsidian Properties UI --- */
+.metadata-property[data-property-key=icon] {
+  display: none !important;
+}
+
+/* Optional: Hide the entire Properties container if 'icon' is the ONLY property in the file */
+.metadata-container:has(.metadata-property[data-property-key=icon]:only-child) {
+  display: none !important;
+}
+
+/* --- File Explorer: Folder Icons --- */
+
+/* Hide the default chevron/arrow SVG */
+.nav-folder-collapse-indicator svg,
+.collapse-icon svg {
+  display: none !important;
+}
+
+/* Style the indicator container as the icon itself */
+.nav-folder-collapse-indicator,
+.collapse-icon,
+.mantle-tree-icon {
+  width: 22px; /* Slightly wider hit area */
+  height: 22px;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 16px; 
+  margin-right: 2px;
+  vertical-align: middle;
+  opacity: 0.8;
+  transition: opacity 0.15s ease;
+}
+
+.mantle-tree-icon {
+  width: 16px; /* User requested smaller width for file icon wrapper */
+}
+
+/* Folder indicators need a manual offset for centering */
+.nav-folder-collapse-indicator,
+.collapse-icon {
+    transform: translate(-1.5px, -4px); /* X: -1.5px, Y: -4px */
+}
+
+/* File icons need a different manual offset for centering */
+.mantle-tree-icon {
+    transform: translate(-1.5px, 3.5px); 
+}
+.mantle-tree-icon svg {
+    width: 16px;
+    height: 16px;
+    color: var(--text-muted);
+}
+
+.nav-folder-title:hover .nav-folder-collapse-indicator,
+.nav-file-title:hover .mantle-tree-icon {
+    opacity: 1;
+}
+
+.nav-file-title, .nav-folder-title {
+    font-family: var(--header-font) !important;
+}
+
+.nav-file-title {
+    padding-top: 1px !important;
+    padding-bottom: 6px;
+}
+
+.nav-folder-title {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+}
+
+/* High-specificity padding and margin for the active item in the file explorer tree */
+body > div.app-container > div.horizontal-main-container > div > div.workspace-split.mod-horizontal.mod-sidedock.mod-left-split > div.workspace-tabs.mod-top.mod-top-left-space > div.workspace-tab-container > div:nth-child(1) > div > div.nav-files-container.node-insert-event > div > div:nth-child(16) > div {
+    padding-bottom: 6px !important;
+    margin-top: 4px !important;
+}
+
+/* "Closed" Folder Icon (Lucide: folder) */
+.is-collapsed > .nav-folder-title .nav-folder-collapse-indicator,
+.is-collapsed > .tree-item-self .collapse-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%238b949e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9l-1.2-1.9a2 2 0 0 0-1.7-.9H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z'/%3E%3C/svg%3E");
+}
+
+/* "Open" Folder Icon (Lucide: folder-open) */
+.nav-folder:not(.is-collapsed) > .nav-folder-title .nav-folder-collapse-indicator,
+.tree-item:not(.is-collapsed) > .tree-item-self .collapse-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%238b949e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 14 1.5-2.9A2 2 0 0 1 9.2 10H20a2 2 0 0 1 1.9 2.5l-1.5 6a2 2 0 0 1-1.9 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.7.9l1.2 1.9a2 2 0 0 0 1.7.9H18a2 2 0 0 1 2 2v2'/%3E%3C/svg%3E");
+}
+
+/* Light theme overrides for better contrast */
+.theme-light {
+    .is-collapsed > .nav-folder-title .nav-folder-collapse-indicator,
+    .is-collapsed > .tree-item-self .collapse-icon {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236e645a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9l-1.2-1.9a2 2 0 0 0-1.7-.9H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z'/%3E%3C/svg%3E");
+    }
+    .nav-folder:not(.is-collapsed) > .nav-folder-title .nav-folder-collapse-indicator,
+    .tree-item:not(.is-collapsed) > .tree-item-self .collapse-icon {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236e645a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 14 1.5-2.9A2 2 0 0 1 9.2 10H20a2 2 0 0 1 1.9 2.5l-1.5 6a2 2 0 0 1-1.9 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.7.9l1.2 1.9a2 2 0 0 0 1.7.9H18a2 2 0 0 1 2 2v2'/%3E%3C/svg%3E");
+    }
+}
+
+/* Inline Title alignment */
+.mantle-title-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.2em;
+  color: var(--text-muted);
+}
+
+/* Inline typing suggest menu */
+.mantle-icon-suggestion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Document Reading Mode alignment */
+.mantle-inline-icon {
+  display: inline-flex;
+  vertical-align: text-bottom;
+}
+
+.mantle-inline-icon svg {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+/* --- Page Header UI (Notion Style) --- */
+.mantle-page-icon-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  margin-top: 16px;
+  height: 48px;
+}
+
+.mantle-page-icon-add {
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-family: var(--font-text);
+  font-size: 0.9em;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: var(--border-radius-button);
+  transition: var(--tr-smooth);
+}
+
+.workspace-leaf-content:hover .mantle-page-icon-add {
+  opacity: 1;
+}
+
+.mantle-page-icon-add:hover {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+
+.mantle-page-icon.active {
+  cursor: pointer;
+  padding: 6px;
+  border-radius: var(--border-radius-card);
+  transition: var(--tr-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mantle-page-icon.active svg {
+  width: 38px;
+  height: 38px;
+  color: var(--text-normal);
+}
+
+.mantle-page-icon.active:hover {
+  background: var(--background-modifier-hover);
+}
+
+.mantle-page-icon-remove {
+  opacity: 0;
+  cursor: pointer;
+  color: white;
+  padding: 4px;
+  border-radius: var(--border-radius-button);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--tr-smooth);
+}
+
+.mantle-page-icon-wrapper:hover .mantle-page-icon-remove {
+  opacity: 1;
+}
+
+.mantle-page-icon-remove:hover {
+  background: var(--background-modifier-error-hover);
+  color: white;
+}

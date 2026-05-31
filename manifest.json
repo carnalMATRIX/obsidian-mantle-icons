@@ -1,0 +1,10 @@
+{
+  "id": "mantle-icons",
+  "name": "Mantle Icons",
+  "description": "Integrates icons into your notes, pairing well with the Zenith theme.",
+  "version": "1.0.0",
+  "author": "Ryan Bakker",
+  "authorUrl": "https://ryanbakker.vercel.app/",
+  "isDesktopOnly": true,
+  "minAppVersion": "1.12.7"
+}
