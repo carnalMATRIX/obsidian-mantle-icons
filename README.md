@@ -1,9 +1,5 @@
 # Mantle Icons
 
-> [!NOTE]
-> **Status: Beta (v1.0.0)**  
-> Mantle Icons is currently in public Beta. Updates focus on expanding the built-in icon collection and optimizing rendering pathways.
-
 Mantle Icons brings visual iconography into your Obsidian notes, sidebars, and folders. Developed as a companion plugin for the **Project Mantle** ecosystem, it integrates icons into your workspace structure to make navigation faster and notes more visually appealing.
 
 ---
@@ -25,7 +21,7 @@ Mantle Icons is designed to pair with the **Zenith theme**, matching its accent 
 
 ## 📥 Installation
 
-### Method A: Via Obsidian Community Directory (Recommended once approved)
+### Method A: Via Obsidian Community Directory (Recommended)
 1. Go to **Settings** > **Community plugins** > **Browse**.
 2. Search for **Mantle Icons**.
 3. Click **Install**, then click **Enable**.
