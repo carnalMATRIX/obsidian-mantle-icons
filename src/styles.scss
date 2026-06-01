@@ -19,7 +19,8 @@
 
 /* Style the indicator container as the icon itself */
 .nav-folder-collapse-indicator,
-.collapse-icon,
+.workspace-split.mod-left-split .collapse-icon,
+.workspace-split.mod-right-split .collapse-icon,
 .mantle-tree-icon {
   width: 22px; /* Slightly wider hit area */
   height: 22px;
@@ -41,7 +42,8 @@
 
 /* Folder indicators need a manual offset for centering */
 .nav-folder-collapse-indicator,
-.collapse-icon {
+.workspace-split.mod-left-split .collapse-icon,
+.workspace-split.mod-right-split .collapse-icon {
     transform: translate(-1.5px, -4px); /* X: -1.5px, Y: -4px */
 }
 
