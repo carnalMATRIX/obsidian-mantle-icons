@@ -10,9 +10,10 @@
 
 /* --- File Explorer: Folder Icons --- */
 
-/* Hide the default chevron/arrow SVG */
+/* Hide the default chevron/arrow SVG only in the sidebars */
 .nav-folder-collapse-indicator svg,
-.collapse-icon svg {
+.workspace-split.mod-left-split .collapse-icon svg,
+.workspace-split.mod-right-split .collapse-icon svg {
   display: none !important;
 }
 
